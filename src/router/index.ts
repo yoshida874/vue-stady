@@ -1,6 +1,7 @@
 import { createRouter, createWebHistory } from "vue-router";
 import TodoView from "../views/Todo.vue";
 import BeforeTableView from "../views/BeforeTable.vue";
+import SuggestSample from "../views/SuggestSample.vue";
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -14,6 +15,11 @@ const router = createRouter({
       path: "/before",
       name: "beforeTable",
       component: BeforeTableView,
+    },
+    {
+      path: "/suggest",
+      name: "suggest",
+      component: SuggestSample,
     },
     // {
     //   path: "/todo",
