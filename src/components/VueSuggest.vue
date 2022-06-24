@@ -1,10 +1,20 @@
 <script setup lang="ts">
-import { ref } from "vue";
+import { ref, watch } from "vue";
 
-const suggests = ref<string[]>([]);
 const value = ref<string>("");
+const list = ref<string[]>([]);
+const suggests = ref<string[]>([]);
+list.value = ["apple", "banana", "grape", "orange", "peach"];
 
-suggests.value = ["apple", "banana", "grape", "orange", "peach"];
+watch(value, () => {
+  getSuggestion();
+});
+
+const getSuggestion = (): void => {
+  suggests.value = list.value.filter((el) => {
+    return el.toLocaleLowerCase().indexOf(value.value) != -1;
+  });
+};
 </script>
 
 <template>
